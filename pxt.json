@@ -1,0 +1,33 @@
+{
+    "name": "Fireboy and Watergirl",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "pxt-countup": "github:shakao/pxt-countup#v0.0.2"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "images.g.jres",
+        "images.g.ts",
+        "tilemap.g.jres",
+        "tilemap.g.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "branch": "v1.12.56",
+        "tag": "v1.12.56",
+        "commits": "https://github.com/microsoft/pxt-arcade/commits/415ef2df2ac233e8d214fef5f4ea26f2f5de232a",
+        "target": "1.12.56",
+        "pxt": "8.5.67",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "blocksprj"
+}
