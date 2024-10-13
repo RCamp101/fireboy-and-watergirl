@@ -1,7 +1,7 @@
  
 
 
-> Open this page at [https://rcamp101.github.io/fireboy-and-watergirl2/](https://rcamp101.github.io/fireboy-and-watergirl/)
+> Open this page at [https://rcamp101.github.io/fireboy-and-watergirl/](https://rcamp101.github.io/fireboy-and-watergirl/)
 
 ## Use as Extension
 
@@ -10,7 +10,7 @@ This repository can be added as an **extension** in MakeCode.
 * open [https://arcade.makecode.com/](https://arcade.makecode.com/)
 * click on **New Project**
 * click on **Extensions** under the gearwheel menu
-* search for **https://github.com/rcamp101/fireboy-and-watergirl2** and import
+* search for **https://github.com/rcamp101/fireboy-and-watergirl** and import
 
 ## Edit this project ![Build status badge](https://github.com/rcamp101/fireboy-and-watergirl/workflows/MakeCode/badge.svg)
 
