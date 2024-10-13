@@ -1,7 +1,7 @@
  
 
 
-> Open this page at [https://rcamp101.github.io/fireboy-and-watergirl2/](https://rcamp101.github.io/fireboy-and-watergirl2/)
+> Open this page at [https://rcamp101.github.io/fireboy-and-watergirl2/](https://rcamp101.github.io/fireboy-and-watergirl/)
 
 ## Use as Extension
 
@@ -12,20 +12,20 @@ This repository can be added as an **extension** in MakeCode.
 * click on **Extensions** under the gearwheel menu
 * search for **https://github.com/rcamp101/fireboy-and-watergirl2** and import
 
-## Edit this project ![Build status badge](https://github.com/rcamp101/fireboy-and-watergirl2/workflows/MakeCode/badge.svg)
+## Edit this project ![Build status badge](https://github.com/rcamp101/fireboy-and-watergirl/workflows/MakeCode/badge.svg)
 
 To edit this repository in MakeCode.
 
 * open [https://arcade.makecode.com/](https://arcade.makecode.com/)
 * click on **Import** then click on **Import URL**
-* paste **https://github.com/rcamp101/fireboy-and-watergirl2** and click import
+* paste **https://github.com/rcamp101/fireboy-and-watergirl** and click import
 
 ## Blocks preview
 
 This image shows the blocks code from the last commit in master.
 This image may take a few minutes to refresh.
 
-![A rendered view of the blocks](https://github.com/rcamp101/fireboy-and-watergirl2/raw/master/.github/makecode/blocks.png)
+![A rendered view of the blocks](https://github.com/rcamp101/fireboy-and-watergirl/raw/master/.github/makecode/blocks.png)
 
 #### Metadata (used for search, rendering)
 
