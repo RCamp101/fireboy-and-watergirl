@@ -3,7 +3,7 @@ namespace SpriteKind {
     export const Wall = SpriteKind.create()
     export const FireGem = SpriteKind.create()
     export const WaterGem = SpriteKind.create()
-    export const WaterFliud = SpriteKind.create()
+    export const WaterFluid = SpriteKind.create()
     export const LavaFluid = SpriteKind.create()
     export const Goo = SpriteKind.create()
 }
@@ -60,6 +60,18 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.FireGem, function (sprite, other
         FireGemCount += 1
     }
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Goo, function (sprite, otherSprite) {
+    sprites.destroy(sprite, effects.disintegrate, 500)
+    game.reset()
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.LavaFluid, function (sprite, otherSprite) {
+    if (sprite == FireBoy) {
+    	
+    } else {
+        sprites.destroy(sprite, effects.disintegrate, 500)
+        game.reset()
+    }
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
     tiles.setTileAt(tiles.getTileLocation(1, 14), assets.tile`myTile6`)
     tiles.setTileAt(tiles.getTileLocation(2, 14), assets.tile`myTile6`)
@@ -73,7 +85,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, l
 controller.player2.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pressed, function () {
     WaterGirl.vy = -1000
 })
-sprites.onOverlap(SpriteKind.WaterFliud, SpriteKind.WaterFliud, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.WaterFluid, SpriteKind.WaterFluid, function (sprite, otherSprite) {
     sprite.setVelocity(randint(-50, 50), randint(-50, 10))
     otherSprite.setVelocity(randint(-50, 50), randint(-50, 10))
 })
@@ -86,6 +98,14 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.WaterGem, function (sprite, othe
 sprites.onOverlap(SpriteKind.LavaFluid, SpriteKind.LavaFluid, function (sprite, otherSprite) {
     sprite.setVelocity(randint(-50, 50), randint(-50, 10))
     otherSprite.setVelocity(randint(-50, 50), randint(-50, 10))
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.WaterFluid, function (sprite, otherSprite) {
+    if (sprite == WaterGirl) {
+    	
+    } else {
+        sprites.destroy(sprite, effects.disintegrate, 500)
+        game.reset()
+    }
 })
 sprites.onOverlap(SpriteKind.Goo, SpriteKind.Goo, function (sprite, otherSprite) {
     sprite.setVelocity(randint(-50, 50), randint(-50, 10))
@@ -129,7 +149,7 @@ tiles.placeOnTile(WaterGem, tiles.getTileLocation(17, 4))
 let WaterGemCount = 0
 let FireGemCount = 0
 for (let index = 0; index < 100; index++) {
-    Water = sprites.create(assets.image`Water`, SpriteKind.WaterFliud)
+    Water = sprites.create(assets.image`Water`, SpriteKind.WaterFluid)
     Water.setScale(0.5, ScaleAnchor.Middle)
     tiles.placeOnTile(Water, tiles.getTileLocation(12, 27))
     Water.ay = 500
@@ -141,7 +161,7 @@ for (let index = 0; index < 100; index++) {
     Lava.ay = 500
 }
 for (let index = 0; index < 100; index++) {
-    Water = sprites.create(assets.image`Water`, SpriteKind.WaterFliud)
+    Water = sprites.create(assets.image`Water`, SpriteKind.WaterFluid)
     Water.setScale(0.5, ScaleAnchor.Middle)
     tiles.placeOnTile(Water, tiles.getTileLocation(17, 6))
     Water.ay = 500
