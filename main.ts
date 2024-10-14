@@ -3,6 +3,9 @@ namespace SpriteKind {
     export const Wall = SpriteKind.create()
     export const FireGem = SpriteKind.create()
     export const WaterGem = SpriteKind.create()
+    export const WaterFliud = SpriteKind.create()
+    export const LavaFluid = SpriteKind.create()
+    export const Goo = SpriteKind.create()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`MiddleMiddleFire`, function (sprite, location) {
     if (sprite == FireBoy) {
@@ -62,14 +65,29 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, l
 controller.player2.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pressed, function () {
     WaterGirl.vy = -1000
 })
+sprites.onOverlap(SpriteKind.WaterFliud, SpriteKind.WaterFliud, function (sprite, otherSprite) {
+    sprite.setVelocity(randint(-50, 50), randint(-50, 10))
+    otherSprite.setVelocity(randint(-50, 50), randint(-50, 10))
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.WaterGem, function (sprite, otherSprite) {
     if (sprite == WaterGirl) {
         sprites.destroy(otherSprite, effects.coolRadial, 100)
         WaterGemCount += 1
     }
 })
+sprites.onOverlap(SpriteKind.LavaFluid, SpriteKind.LavaFluid, function (sprite, otherSprite) {
+    sprite.setVelocity(randint(-50, 50), randint(-50, 10))
+    otherSprite.setVelocity(randint(-50, 50), randint(-50, 10))
+})
+sprites.onOverlap(SpriteKind.Goo, SpriteKind.Goo, function (sprite, otherSprite) {
+    sprite.setVelocity(randint(-50, 50), randint(-50, 10))
+    otherSprite.setVelocity(randint(-50, 50), randint(-50, 10))
+})
 let FireBoyDone = false
 let WaterGirlDone = false
+let Poison: Sprite = null
+let Lava: Sprite = null
+let Water: Sprite = null
 let WaterGirl: Sprite = null
 let FireBoy: Sprite = null
 namespace userconfig {
@@ -97,11 +115,41 @@ tiles.placeOnTile(FireGem2, tiles.getTileLocation(15, 17))
 WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
 tiles.placeOnTile(WaterGem, tiles.getTileLocation(18, 17))
 let FireGem3 = sprites.create(assets.image`FireGem`, SpriteKind.FireGem)
-tiles.placeOnTile(FireGem3, tiles.getTileLocation(26, 7))
+tiles.placeOnTile(FireGem3, tiles.getTileLocation(26, 6))
 WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
-tiles.placeOnTile(WaterGem, tiles.getTileLocation(17, 5))
+tiles.placeOnTile(WaterGem, tiles.getTileLocation(17, 4))
 let WaterGemCount = 0
 let FireGemCount = 0
+for (let index = 0; index < 100; index++) {
+    Water = sprites.create(assets.image`Water`, SpriteKind.WaterFliud)
+    Water.setScale(0.5, ScaleAnchor.Middle)
+    tiles.placeOnTile(Water, tiles.getTileLocation(12, 27))
+    Water.ay = 500
+}
+for (let index = 0; index < 100; index++) {
+    Lava = sprites.create(assets.image`Lava`, SpriteKind.LavaFluid)
+    Lava.setScale(0.5, ScaleAnchor.Middle)
+    tiles.placeOnTile(Lava, tiles.getTileLocation(21, 27))
+    Lava.ay = 500
+}
+for (let index = 0; index < 100; index++) {
+    Water = sprites.create(assets.image`Water`, SpriteKind.WaterFliud)
+    Water.setScale(0.5, ScaleAnchor.Middle)
+    tiles.placeOnTile(Water, tiles.getTileLocation(17, 5))
+    Water.ay = 500
+}
+for (let index = 0; index < 100; index++) {
+    Lava = sprites.create(assets.image`Lava`, SpriteKind.LavaFluid)
+    Lava.setScale(0.5, ScaleAnchor.Middle)
+    tiles.placeOnTile(Lava, tiles.getTileLocation(26, 8))
+    Lava.ay = 500
+}
+for (let index = 0; index < 100; index++) {
+    Poison = sprites.create(assets.image`Goo`, SpriteKind.Goo)
+    Water.setScale(0.5, ScaleAnchor.Middle)
+    tiles.placeOnTile(Water, tiles.getTileLocation(25, 14))
+    Water.ay = 500
+}
 game.onUpdateInterval(50, function () {
     tiles.setWallAt(tiles.getTileLocation(1, 14), true)
     tiles.setWallAt(tiles.getTileLocation(2, 14), true)

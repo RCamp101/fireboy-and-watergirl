@@ -1,18 +1,8 @@
 {
-    "image2": {
-        "data": "hwQQABAAAAAiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIoiIiCIiIiKCKCIiKCIiIoiCIiKIIiKCIiIiIoIiIogiIiIigiIigiIiIiKCIiKCKCIiIoIiIiKCIiIigiIiIiKIKCKCIiIiIiKIiIgiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIg==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "W"
-    },
     "image7": {
         "data": "hwQOABAAAAD/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "WaterDoor2"
-    },
-    "image8": {
-        "data": "hwQOABAAAAD/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "FireDoor2"
     },
     "image5": {
         "data": "hwQOABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACZmZmZmZmZmZmZmZmZmZmZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -48,6 +38,21 @@
         "data": "hwQRAA8AAAAAAPAPAAAAAAAAj/gAAAAAAPCIiA8AAAAAj5iI+AAAAPCIiYmIDwAAj5iIiIj4AACPiIiIiIgPAI+IiIiIiPgAj4iIiIiIiA+PiIiIiIj4AI+IiIiIiA8Aj4iIiIj4AADwiIiIiA8AAACPiIj4AAAAAPCIiA8AAAAAAI/4AAAAAAAA8A8AAAAA",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "WaterGem"
+    },
+    "image2": {
+        "data": "hwQQABAAAAAiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIg==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Lava"
+    },
+    "image11": {
+        "data": "hwQQABAAAACIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Water"
+    },
+    "image8": {
+        "data": "hwQQABAAAAB3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3dw==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Goo"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",
