@@ -135,7 +135,7 @@ for (let index = 0; index < 100; index++) {
 for (let index = 0; index < 100; index++) {
     Water = sprites.create(assets.image`Water`, SpriteKind.WaterFliud)
     Water.setScale(0.5, ScaleAnchor.Middle)
-    tiles.placeOnTile(Water, tiles.getTileLocation(17, 5))
+    tiles.placeOnTile(Water, tiles.getTileLocation(17, 6))
     Water.ay = 500
 }
 for (let index = 0; index < 100; index++) {
@@ -146,9 +146,9 @@ for (let index = 0; index < 100; index++) {
 }
 for (let index = 0; index < 100; index++) {
     Poison = sprites.create(assets.image`Goo`, SpriteKind.Goo)
-    Water.setScale(0.5, ScaleAnchor.Middle)
-    tiles.placeOnTile(Water, tiles.getTileLocation(25, 14))
-    Water.ay = 500
+    Poison.setScale(0.5, ScaleAnchor.Middle)
+    tiles.placeOnTile(Poison, tiles.getTileLocation(25, 20))
+    Poison.ay = 500
 }
 game.onUpdateInterval(50, function () {
     tiles.setWallAt(tiles.getTileLocation(1, 14), true)
