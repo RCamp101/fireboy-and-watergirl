@@ -39,6 +39,16 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "WaterGirl1"
     },
+    "image9": {
+        "data": "hwQRAA8AAAAAAPAPAAAAAAAAL/IAAAAAAPAiIg8AAAAAL0Ii8gAAAPAiJCQiDwAAL0IiIiLyAAAvIiIiIiIPAC8iIiIiIvIALyIiIiIiIg8vIiIiIiLyAC8iIiIiIg8ALyIiIiLyAADwIiIiIg8AAAAvIiLyAAAAAPAiIg8AAAAAAC/yAAAAAAAA8A8AAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "FireGem"
+    },
+    "image10": {
+        "data": "hwQRAA8AAAAAAPAPAAAAAAAAj/gAAAAAAPCIiA8AAAAAj5iI+AAAAPCIiYmIDwAAj5iIiIj4AACPiIiIiIgPAI+IiIiIiPgAj4iIiIiIiA+PiIiIiIj4AI+IiIiIiA8Aj4iIiIj4AADwiIiIiA8AAACPiIj4AAAAAPCIiA8AAAAAAI/4AAAAAAAA8A8AAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "WaterGem"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

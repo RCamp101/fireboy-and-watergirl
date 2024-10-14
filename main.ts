@@ -1,6 +1,8 @@
 namespace SpriteKind {
     export const OverlapDoor = SpriteKind.create()
     export const Wall = SpriteKind.create()
+    export const FireGem = SpriteKind.create()
+    export const WaterGem = SpriteKind.create()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`MiddleMiddleFire`, function (sprite, location) {
     if (sprite == FireBoy) {
@@ -41,8 +43,30 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`MiddleMiddleWater`, function 
         }
     }
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.FireGem, function (sprite, otherSprite) {
+    if (sprite == FireBoy) {
+        sprites.destroy(otherSprite, effects.warmRadial, 100)
+        FireGemCount += 1
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
+    tiles.setTileAt(tiles.getTileLocation(1, 14), assets.tile`myTile6`)
+    tiles.setTileAt(tiles.getTileLocation(2, 14), assets.tile`myTile6`)
+    tiles.setTileAt(tiles.getTileLocation(3, 14), assets.tile`myTile6`)
+    tiles.setTileAt(tiles.getTileLocation(4, 14), assets.tile`myTile6`)
+    tiles.setWallAt(tiles.getTileLocation(1, 14), false)
+    tiles.setWallAt(tiles.getTileLocation(2, 14), false)
+    tiles.setWallAt(tiles.getTileLocation(3, 14), false)
+    tiles.setWallAt(tiles.getTileLocation(4, 14), false)
+})
 controller.player2.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pressed, function () {
     WaterGirl.vy = -1000
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.WaterGem, function (sprite, otherSprite) {
+    if (sprite == WaterGirl) {
+        sprites.destroy(otherSprite, effects.coolRadial, 100)
+        WaterGemCount += 1
+    }
 })
 let FireBoyDone = false
 let WaterGirlDone = false
@@ -59,7 +83,37 @@ FireBoy.setStayInScreen(true)
 WaterGirl.setStayInScreen(true)
 controller.moveSprite(FireBoy, 250, 0)
 controller.player2.moveSprite(WaterGirl, 250, 0)
-scene.setBackgroundImage(assets.image`Level 1`)
 info.startCountup(true)
 FireBoy.ay = 2000
 WaterGirl.ay = 2000
+tiles.placeOnTile(FireBoy, tiles.getTileLocation(2, 22))
+tiles.placeOnTile(WaterGirl, tiles.getTileLocation(5, 22))
+let FireGem1 = sprites.create(assets.image`FireGem`, SpriteKind.FireGem)
+tiles.placeOnTile(FireGem1, tiles.getTileLocation(21, 25))
+let WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
+tiles.placeOnTile(WaterGem, tiles.getTileLocation(12, 25))
+let FireGem2 = sprites.create(assets.image`FireGem`, SpriteKind.FireGem)
+tiles.placeOnTile(FireGem2, tiles.getTileLocation(15, 17))
+WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
+tiles.placeOnTile(WaterGem, tiles.getTileLocation(18, 17))
+let FireGem3 = sprites.create(assets.image`FireGem`, SpriteKind.FireGem)
+tiles.placeOnTile(FireGem3, tiles.getTileLocation(26, 7))
+WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
+tiles.placeOnTile(WaterGem, tiles.getTileLocation(17, 5))
+let WaterGemCount = 0
+let FireGemCount = 0
+game.onUpdateInterval(50, function () {
+    tiles.setWallAt(tiles.getTileLocation(1, 14), true)
+    tiles.setWallAt(tiles.getTileLocation(2, 14), true)
+    tiles.setWallAt(tiles.getTileLocation(3, 14), true)
+    tiles.setWallAt(tiles.getTileLocation(4, 14), true)
+})
+game.onUpdateInterval(200, function () {
+    pause(100)
+    if (tiles.tileAtLocationIsWall(tiles.getTileLocation(1, 14))) {
+        tiles.setTileAt(tiles.getTileLocation(1, 14), assets.tile`myTile5`)
+        tiles.setTileAt(tiles.getTileLocation(2, 14), assets.tile`myTile5`)
+        tiles.setTileAt(tiles.getTileLocation(3, 14), assets.tile`myTile5`)
+        tiles.setTileAt(tiles.getTileLocation(4, 14), assets.tile`myTile5`)
+    }
+})
