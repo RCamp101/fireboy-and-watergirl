@@ -9,17 +9,21 @@ namespace SpriteKind {
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`MiddleMiddleFire`, function (sprite, location) {
     if (sprite == FireBoy) {
+        tiles.setTileAt(tiles.getTileLocation(8, 4), assets.tile`myTile3`)
+        tiles.setTileAt(tiles.getTileLocation(8, 3), assets.tile`myTile3`)
+        tiles.setTileAt(tiles.getTileLocation(8, 2), assets.tile`myTile3`)
+        tiles.setTileAt(tiles.getTileLocation(7, 2), assets.tile`myTile`)
+        tiles.setTileAt(tiles.getTileLocation(7, 3), assets.tile`myTile`)
+        tiles.setTileAt(tiles.getTileLocation(7, 4), assets.tile`myTile`)
+        tiles.setTileAt(tiles.getTileLocation(6, 2), assets.tile`myTile`)
+        tiles.setTileAt(tiles.getTileLocation(6, 3), assets.tile`myTile`)
+        tiles.setTileAt(tiles.getTileLocation(6, 4), assets.tile`myTile`)
+        tiles.placeOnTile(FireBoy, tiles.getTileLocation(7, 3))
+        controller.moveSprite(FireBoy, 0, 0)
+        pause(100)
         if (WaterGirlDone) {
-            tiles.setTileAt(tiles.getTileLocation(8, 4), assets.tile`myTile3`)
-            tiles.setTileAt(tiles.getTileLocation(8, 3), assets.tile`myTile3`)
-            tiles.setTileAt(tiles.getTileLocation(8, 2), assets.tile`myTile3`)
-            tiles.setTileAt(tiles.getTileLocation(7, 2), assets.tile`myTile`)
-            tiles.setTileAt(tiles.getTileLocation(7, 3), assets.tile`myTile`)
-            tiles.setTileAt(tiles.getTileLocation(7, 4), assets.tile`myTile`)
-            tiles.setTileAt(tiles.getTileLocation(6, 2), assets.tile`myTile`)
-            tiles.setTileAt(tiles.getTileLocation(6, 3), assets.tile`myTile`)
-            tiles.setTileAt(tiles.getTileLocation(6, 4), assets.tile`myTile`)
             game.gameOver(true)
+            game.setGameOverMessage(true, "GAME OVER!")
         } else {
             FireBoyDone = true
         }
@@ -30,17 +34,21 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`MiddleMiddleWater`, function (sprite, location) {
     if (sprite == WaterGirl) {
+        tiles.setTileAt(tiles.getTileLocation(4, 4), assets.tile`myTile3`)
+        tiles.setTileAt(tiles.getTileLocation(4, 3), assets.tile`myTile3`)
+        tiles.setTileAt(tiles.getTileLocation(4, 2), assets.tile`myTile3`)
+        tiles.setTileAt(tiles.getTileLocation(3, 2), assets.tile`myTile`)
+        tiles.setTileAt(tiles.getTileLocation(3, 3), assets.tile`myTile`)
+        tiles.setTileAt(tiles.getTileLocation(3, 4), assets.tile`myTile`)
+        tiles.setTileAt(tiles.getTileLocation(2, 2), assets.tile`myTile`)
+        tiles.setTileAt(tiles.getTileLocation(2, 3), assets.tile`myTile`)
+        tiles.setTileAt(tiles.getTileLocation(2, 4), assets.tile`myTile`)
+        tiles.placeOnTile(WaterGirl, tiles.getTileLocation(3, 3))
+        controller.player2.moveSprite(WaterGirl, 0, 0)
+        pause(100)
         if (FireBoyDone) {
-            tiles.setTileAt(tiles.getTileLocation(4, 4), assets.tile`myTile3`)
-            tiles.setTileAt(tiles.getTileLocation(4, 3), assets.tile`myTile3`)
-            tiles.setTileAt(tiles.getTileLocation(4, 2), assets.tile`myTile3`)
-            tiles.setTileAt(tiles.getTileLocation(3, 2), assets.tile`myTile`)
-            tiles.setTileAt(tiles.getTileLocation(3, 3), assets.tile`myTile`)
-            tiles.setTileAt(tiles.getTileLocation(3, 4), assets.tile`myTile`)
-            tiles.setTileAt(tiles.getTileLocation(2, 2), assets.tile`myTile`)
-            tiles.setTileAt(tiles.getTileLocation(2, 3), assets.tile`myTile`)
-            tiles.setTileAt(tiles.getTileLocation(2, 4), assets.tile`myTile`)
             game.gameOver(true)
+            game.setGameOverMessage(true, "GAME OVER!")
         } else {
             WaterGirlDone = true
         }
