@@ -133,6 +133,9 @@ let FireBoyDone = false
 let WaterGirlDone = false
 let FireGem5: Sprite = null
 let FireGem4: Sprite = null
+let Poison: Sprite = null
+let Lava: Sprite = null
+let Water: Sprite = null
 let FireGem3: Sprite = null
 let FireGem2: Sprite = null
 let WaterGem: Sprite = null
@@ -202,6 +205,36 @@ if (LevelNumber == 0) {
     tiles.placeOnTile(FireGem3, tiles.getTileLocation(26, 6))
     WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
     tiles.placeOnTile(WaterGem, tiles.getTileLocation(17, 4))
+    for (let index = 0; index < 100; index++) {
+        Water = sprites.create(assets.image`Water`, SpriteKind.WaterFluid)
+        Water.setScale(0.5, ScaleAnchor.Middle)
+        tiles.placeOnTile(Water, tiles.getTileLocation(12, 27))
+        Water.ay = 500
+    }
+    for (let index = 0; index < 100; index++) {
+        Lava = sprites.create(assets.image`Lava`, SpriteKind.LavaFluid)
+        Lava.setScale(0.5, ScaleAnchor.Middle)
+        tiles.placeOnTile(Lava, tiles.getTileLocation(21, 27))
+        Lava.ay = 500
+    }
+    for (let index = 0; index < 100; index++) {
+        Water = sprites.create(assets.image`Water`, SpriteKind.WaterFluid)
+        Water.setScale(0.5, ScaleAnchor.Middle)
+        tiles.placeOnTile(Water, tiles.getTileLocation(17, 6))
+        Water.ay = 500
+    }
+    for (let index = 0; index < 100; index++) {
+        Lava = sprites.create(assets.image`Lava`, SpriteKind.LavaFluid)
+        Lava.setScale(0.5, ScaleAnchor.Middle)
+        tiles.placeOnTile(Lava, tiles.getTileLocation(26, 8))
+        Lava.ay = 500
+    }
+    for (let index = 0; index < 100; index++) {
+        Poison = sprites.create(assets.image`Goo`, SpriteKind.Goo)
+        Poison.setScale(0.5, ScaleAnchor.Middle)
+        tiles.placeOnTile(Poison, tiles.getTileLocation(25, 20))
+        Poison.ay = 500
+    }
 } else if (LevelNumber == 1) {
     tiles.setCurrentTilemap(tilemap`Level1`)
     tiles.placeOnTile(FireBoy, tiles.getTileLocation(14, 23))
@@ -226,6 +259,36 @@ if (LevelNumber == 0) {
     tiles.placeOnTile(FireGem5, tiles.getTileLocation(26, 6))
     WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
     tiles.placeOnTile(WaterGem, tiles.getTileLocation(17, 4))
+    for (let index = 0; index < 100; index++) {
+        Water = sprites.create(assets.image`Water`, SpriteKind.WaterFluid)
+        Water.setScale(0.5, ScaleAnchor.Middle)
+        tiles.placeOnTile(Water, tiles.getTileLocation(12, 27))
+        Water.ay = 500
+    }
+    for (let index = 0; index < 100; index++) {
+        Lava = sprites.create(assets.image`Lava`, SpriteKind.LavaFluid)
+        Lava.setScale(0.5, ScaleAnchor.Middle)
+        tiles.placeOnTile(Lava, tiles.getTileLocation(21, 27))
+        Lava.ay = 500
+    }
+    for (let index = 0; index < 100; index++) {
+        Water = sprites.create(assets.image`Water`, SpriteKind.WaterFluid)
+        Water.setScale(0.5, ScaleAnchor.Middle)
+        tiles.placeOnTile(Water, tiles.getTileLocation(17, 6))
+        Water.ay = 500
+    }
+    for (let index = 0; index < 100; index++) {
+        Lava = sprites.create(assets.image`Lava`, SpriteKind.LavaFluid)
+        Lava.setScale(0.5, ScaleAnchor.Middle)
+        tiles.placeOnTile(Lava, tiles.getTileLocation(26, 8))
+        Lava.ay = 500
+    }
+    for (let index = 0; index < 100; index++) {
+        Poison = sprites.create(assets.image`Goo`, SpriteKind.Goo)
+        Poison.setScale(0.5, ScaleAnchor.Middle)
+        tiles.placeOnTile(Poison, tiles.getTileLocation(25, 20))
+        Poison.ay = 500
+    }
 } else if (false) {
 	
 } else {
