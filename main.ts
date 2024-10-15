@@ -22,11 +22,18 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`MiddleMiddleFire`, function (
         controller.moveSprite(FireBoy, 0, 0)
         pause(100)
         if (WaterGirlDone) {
-            game.gameOver(true)
-            game.setGameOverMessage(true, "GAME OVER!")
+            info.pauseCountup()
+            LevelNumber = game.askForNumber("Choose a Level 1 2 3")
+            game.reset()
         } else {
             FireBoyDone = true
         }
+    }
+})
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (FireJumps < FireMaxJumps) {
+        FireBoy.vy = -2000
+        FireJumps += 1
     }
 })
 scene.onHitWall(SpriteKind.Player, function (sprite, location) {
@@ -37,12 +44,6 @@ scene.onHitWall(SpriteKind.Player, function (sprite, location) {
         if (sprite == WaterGirl) {
             WaterJumps = 0
         }
-    }
-})
-controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (FireJumps < FireMaxJumps) {
-        FireBoy.vy = -2000
-        FireJumps += 1
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`MiddleMiddleWater`, function (sprite, location) {
@@ -60,8 +61,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`MiddleMiddleWater`, function 
         controller.player2.moveSprite(WaterGirl, 0, 0)
         pause(100)
         if (FireBoyDone) {
-            game.gameOver(true)
-            game.setGameOverMessage(true, "GAME OVER!")
+            info.pauseCountup()
+            LevelNumber = game.askForNumber("Choose a Level 1 2 3")
+            game.reset()
         } else {
             WaterGirlDone = true
         }
@@ -129,20 +131,32 @@ sprites.onOverlap(SpriteKind.Goo, SpriteKind.Goo, function (sprite, otherSprite)
 })
 let FireBoyDone = false
 let WaterGirlDone = false
-let FireJumps = 0
-let WaterJumps = 0
+let FireGem5: Sprite = null
+let FireGem4: Sprite = null
+let FireGem3: Sprite = null
+let FireGem2: Sprite = null
+let WaterGem: Sprite = null
+let FireGem1: Sprite = null
 let WaterGirl: Sprite = null
 let FireBoy: Sprite = null
 let WaterSpeed = 0
 let WaterMaxJumps = 0
 let FireSpeed = 0
 let FireMaxJumps = 0
+let FireJumps = 0
+let WaterJumps = 0
+let LevelNumber = 0
 namespace userconfig {
     export const ARCADE_SCREEN_WIDTH = 640
     export const ARCADE_SCREEN_HEIGHT = 480
 }
 let FireDifficulty = game.askForNumber("Player !: 1-Easy 2-Medium 3-Hard")
 let WaterDifficulty = game.askForNumber("Player 2: 1-Easy 2-Medium 3-Hard")
+LevelNumber = 0
+let WaterGemCount = 0
+let FireGemCount = 0
+WaterJumps = 0
+FireJumps = 0
 if (FireDifficulty == 1) {
     FireMaxJumps = 3
     FireSpeed = 350
@@ -163,7 +177,6 @@ if (WaterDifficulty == 1) {
     WaterMaxJumps = 1
     WaterSpeed = 250
 }
-tiles.setCurrentTilemap(tilemap`level1`)
 FireBoy = sprites.create(assets.image`FireBoy1`, SpriteKind.Player)
 WaterGirl = sprites.create(assets.image`WaterGirl1`, SpriteKind.Player)
 FireBoy.setStayInScreen(true)
@@ -173,24 +186,51 @@ controller.player2.moveSprite(WaterGirl, WaterSpeed, 0)
 info.startCountup(true)
 FireBoy.ay = 2000
 WaterGirl.ay = 2000
-tiles.placeOnTile(FireBoy, tiles.getTileLocation(2, 22))
-tiles.placeOnTile(WaterGirl, tiles.getTileLocation(5, 22))
-let FireGem1 = sprites.create(assets.image`FireGem`, SpriteKind.FireGem)
-tiles.placeOnTile(FireGem1, tiles.getTileLocation(21, 25))
-let WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
-tiles.placeOnTile(WaterGem, tiles.getTileLocation(12, 25))
-let FireGem2 = sprites.create(assets.image`FireGem`, SpriteKind.FireGem)
-tiles.placeOnTile(FireGem2, tiles.getTileLocation(15, 17))
-WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
-tiles.placeOnTile(WaterGem, tiles.getTileLocation(18, 17))
-let FireGem3 = sprites.create(assets.image`FireGem`, SpriteKind.FireGem)
-tiles.placeOnTile(FireGem3, tiles.getTileLocation(26, 6))
-WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
-tiles.placeOnTile(WaterGem, tiles.getTileLocation(17, 4))
-let WaterGemCount = 0
-let FireGemCount = 0
-WaterJumps = 0
-FireJumps = 0
+if (LevelNumber == 0) {
+    tiles.setCurrentTilemap(tilemap`Level0`)
+    tiles.placeOnTile(FireBoy, tiles.getTileLocation(2, 22))
+    tiles.placeOnTile(WaterGirl, tiles.getTileLocation(5, 22))
+    FireGem1 = sprites.create(assets.image`FireGem`, SpriteKind.FireGem)
+    tiles.placeOnTile(FireGem1, tiles.getTileLocation(21, 25))
+    WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
+    tiles.placeOnTile(WaterGem, tiles.getTileLocation(12, 25))
+    FireGem2 = sprites.create(assets.image`FireGem`, SpriteKind.FireGem)
+    tiles.placeOnTile(FireGem2, tiles.getTileLocation(15, 17))
+    WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
+    tiles.placeOnTile(WaterGem, tiles.getTileLocation(18, 17))
+    FireGem3 = sprites.create(assets.image`FireGem`, SpriteKind.FireGem)
+    tiles.placeOnTile(FireGem3, tiles.getTileLocation(26, 6))
+    WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
+    tiles.placeOnTile(WaterGem, tiles.getTileLocation(17, 4))
+} else if (LevelNumber == 1) {
+    tiles.setCurrentTilemap(tilemap`Level1`)
+    tiles.placeOnTile(FireBoy, tiles.getTileLocation(14, 23))
+    tiles.placeOnTile(WaterGirl, tiles.getTileLocation(10, 23))
+    FireGem1 = sprites.create(assets.image`FireGem`, SpriteKind.FireGem)
+    tiles.placeOnTile(FireGem1, tiles.getTileLocation(7, 27))
+    WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
+    tiles.placeOnTile(WaterGem, tiles.getTileLocation(3, 27))
+    FireGem2 = sprites.create(assets.image`FireGem`, SpriteKind.FireGem)
+    tiles.placeOnTile(FireGem2, tiles.getTileLocation(3, 20))
+    WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
+    tiles.placeOnTile(WaterGem, tiles.getTileLocation(21, 24))
+    FireGem3 = sprites.create(assets.image`FireGem`, SpriteKind.FireGem)
+    tiles.placeOnTile(FireGem3, tiles.getTileLocation(26, 6))
+    WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
+    tiles.placeOnTile(WaterGem, tiles.getTileLocation(17, 4))
+    FireGem4 = sprites.create(assets.image`FireGem`, SpriteKind.FireGem)
+    tiles.placeOnTile(FireGem4, tiles.getTileLocation(26, 6))
+    WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
+    tiles.placeOnTile(WaterGem, tiles.getTileLocation(17, 4))
+    FireGem5 = sprites.create(assets.image`FireGem`, SpriteKind.FireGem)
+    tiles.placeOnTile(FireGem5, tiles.getTileLocation(26, 6))
+    WaterGem = sprites.create(assets.image`WaterGem`, SpriteKind.WaterGem)
+    tiles.placeOnTile(WaterGem, tiles.getTileLocation(17, 4))
+} else if (false) {
+	
+} else {
+	
+}
 game.onUpdateInterval(50, function () {
     tiles.setWallAt(tiles.getTileLocation(1, 14), true)
     tiles.setWallAt(tiles.getTileLocation(2, 14), true)
