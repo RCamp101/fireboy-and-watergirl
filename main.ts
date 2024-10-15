@@ -163,7 +163,7 @@ if (WaterDifficulty == 1) {
     WaterMaxJumps = 1
     WaterSpeed = 250
 }
-tiles.setCurrentTilemap(tilemap`level2`)
+tiles.setCurrentTilemap(tilemap`level1`)
 FireBoy = sprites.create(assets.image`FireBoy1`, SpriteKind.Player)
 WaterGirl = sprites.create(assets.image`WaterGirl1`, SpriteKind.Player)
 FireBoy.setStayInScreen(true)
